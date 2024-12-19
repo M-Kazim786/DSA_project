@@ -40,11 +40,15 @@ public class GameEngine {
         List<AdventureNode> choices = currentNode.getChoices();
 
         if (!choices.isEmpty()) {
-            System.out.println("\nWhat would you like to do?");
-            for (int i = 0; i < choices.size(); i++) {
-                System.out.println((i + 1) + ". " + choices.get(i).getDescription());
+            if (choices.size() == 1) {
+                System.out.print("Type 'C' to continue or 'B' to go back: ");
+            } else {
+                System.out.println("\nWhat would you like to do?");
+                for (int i = 0; i < choices.size(); i++) {
+                    System.out.println((i + 1) + ". " + choices.get(i).getDescription());
+                }
+                System.out.print("Enter your choice (or type 'B' to go back): ");
             }
-            System.out.print("Enter your choice (or type 'B' to go back): ");
         }
     }
 
@@ -64,12 +68,14 @@ public class GameEngine {
 
         if (input.equals("B")) {
             handleBacktracking();
+        } else if (input.equals("C") && currentNode.getChoices().size() == 1) {
+            handleContinue();
         } else {
             try {
                 int choice = Integer.parseInt(input) - 1;
                 handleChoiceSelection(choice);
             } catch (NumberFormatException e) {
-                System.out.println("Invalid input. Enter a number or type 'B' to go back.");
+                System.out.println("Invalid input. Enter a number, 'B' to go back, or 'C' to continue.");
             }
         }
     }
@@ -91,5 +97,9 @@ public class GameEngine {
         } else {
             System.out.println("Invalid choice. Try again.");
         }
+    }
+
+    private void handleContinue() {
+        currentNode = currentNode.getChoices().get(0);
     }
 }
