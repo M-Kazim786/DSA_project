@@ -6,13 +6,13 @@ import java.util.Stack;
 
 public class GameEngine {
     private AdventureNode currentNode;
-    private AdventureNode startNode; // Keep track of the starting node
+    private AdventureNode startNode; 
     private Scanner scanner;
     private Stack<AdventureNode> history;
 
     public GameEngine(AdventureNode startNode) {
         this.currentNode = startNode;
-        this.startNode = startNode; // Save the start node for resetting the game
+        this.startNode = startNode;
         this.scanner = new Scanner(System.in);
         this.history = new Stack<>();
     }
@@ -59,8 +59,8 @@ public class GameEngine {
     }
 
     private void resetGame() {
-        history.clear(); // Clear the history stack
-        currentNode = startNode; // Reset to the starting node
+        history.clear(); 
+        currentNode = startNode;
     }
 
     private void handleUserInput() {
@@ -93,7 +93,7 @@ public class GameEngine {
 
         if (choice >= 0 && choice < choices.size()) {
             history.push(currentNode);
-            currentNode = choices.get(choice); // Directly navigate to the chosen node
+            currentNode = choices.get(choice); 
         } else {
             System.out.println("Invalid choice. Try again.");
         }

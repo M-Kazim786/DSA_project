@@ -2,7 +2,7 @@ package game;
 
 public class StoryTree {
     public AdventureNode buildStory() {
-        AdventureNode start = new AdventureNode("🌳 You stand at the edge of a mystical forest. An eerie mist swirls around your feet, and the trees seem to whisper ancient secrets. Do you dare to enter?");
+        AdventureNode start = new AdventureNode("🌳 You stand at the edge of a mystical forest, where the air hums with ancient magic. The mist swirls around you, whispering secrets of Eldoria’s hidden power. Would you like to seek the magic of Eldoria? Will you venture in to uncover its secrets?");
         AdventureNode forestPath = new AdventureNode("🍃 Stepping into the forest, you're enveloped by a canopy that barely allows sunlight through. Ahead, you see two paths: one well-trodden, the other overgrown and ominous.");
         AdventureNode markedPath = new AdventureNode("🌿 Following the well-trodden path, you emerge into a serene clearing. A babbling stream 💧 catches your attention, but so does a fork in the path ahead.");
         AdventureNode wildTrail = new AdventureNode("🌚 The overgrown path leads you deeper into the wild. Shadows dance at the edge of your vision, and strange sounds echo in the distance.");
